@@ -13,5 +13,5 @@ person_view = dataset.filter_labels("ground_truth", F("label") == "person")
 person_samples = person_view.match(F("ground_truth.detections") != [])
 
 # 可视化筛选后的数据
-session = fo.launch_app(person_samples)
-session.wait()  # 保持应用界面
+# session = fo.launch_app(person_samples)
+# session.wait()  # 保持应用界面

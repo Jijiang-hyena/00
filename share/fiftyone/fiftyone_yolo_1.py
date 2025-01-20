@@ -4,7 +4,7 @@ import fiftyone.zoo as foz
 import os
 from fiftyone import ViewField as F
 # 导出目录
-EXPORT_DIR = "/home/bird/yolo_dataset_1"
+EXPORT_DIR = "/home/user1/hyena_workspace/yolo_dataset_1"
 
 # 加载 COCO 2017 验证集
 dataset = fo.zoo.load_zoo_dataset("coco-2017", split="validation")
@@ -16,8 +16,8 @@ person_view = dataset.filter_labels("ground_truth", F("label") == "person")
 person_samples = person_view.match(F("ground_truth.detections") != [])
 
 # 手动指定类别列表，只有 "person" 类别
-# classes = ["person"]
-classes = person_view.default_classes
+classes = ["person"]
+# classes = person_view.default_classes
 
 # 删除现有的 dataset.yaml 文件（如果已存在）
 yaml_path = os.path.join(EXPORT_DIR, "dataset.yaml")
